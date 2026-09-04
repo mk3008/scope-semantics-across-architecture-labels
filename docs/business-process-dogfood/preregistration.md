@@ -12,6 +12,8 @@ Node.js ESM, the `pg` PostgreSQL driver, raw SQL, PostgreSQL 16, Docker Compose,
 
 All DDL, stage packets, common prompts, and cumulative acceptance tests are frozen before Stage 1. Each implementation and refactoring task is a fresh Terra/medium task. Each cross-activity review is a fresh Sol/medium, read-only task. Workers receive only their current cumulative state and current-stage packet; they do not receive future packets, prior research conclusions, or other-arm material.
 
+The historical Business Rule timeline is never passed wholesale to a worker. Before every Stage, only the then-current active rules are copied to a `current accepted Business Rules` worker-input snapshot; future pending rules are excluded.
+
 Structural guidance is exactly:
 
 `For physical placement, choose the narrowest meaningful semantic boundary that owns the decision and contains its current required consumers.`
