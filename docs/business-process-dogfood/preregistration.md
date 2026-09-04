@@ -17,3 +17,7 @@ Structural guidance is exactly:
 `For physical placement, choose the narrowest meaningful semantic boundary that owns the decision and contains its current required consumers.`
 
 No expected tree, layer, or shared-code objective is supplied. After every implementation: behavior verification, cross-activity consistency review, then (if no blocker) fresh refactoring. A consistency review must exhaust all discoverable current-snapshot blockers; under-specification, inconsistency, or data-model insufficiency stops later stages pending an appended human decision.
+
+## Prospective blocker calibration
+
+An omitted detail is a HUMAN_BLOCKER only when its resolution changes a Business Process/Activity outcome, allowed/forbidden business state or transition, Business Rule/invariant/consistency constraint, performer authority, Business Data meaning/cardinality/identity, cross-activity consistency, or ability of frozen Data Model to represent required facts. Implementation/API/UI/query/formatting/performance/logging/naming/pagination/serialization choices are made minimally and reversibly, and recorded as implementation assumptions only if material.

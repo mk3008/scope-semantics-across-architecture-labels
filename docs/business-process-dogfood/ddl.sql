@@ -2,8 +2,7 @@ CREATE TABLE quotation (
   quotation_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   customer_id TEXT NOT NULL,
   expires_at TIMESTAMPTZ NOT NULL,
-  status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'ordered', 'expired')),
-  order_id BIGINT UNIQUE
+  status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'ordered', 'expired'))
 );
 
 CREATE TABLE quotation_line (
@@ -22,9 +21,6 @@ CREATE TABLE customer_order (
   total_amount NUMERIC(14, 2) NOT NULL DEFAULT 0 CHECK (total_amount >= 0),
   shipment_at TIMESTAMPTZ
 );
-
-ALTER TABLE quotation ADD CONSTRAINT quotation_order_fk
-  FOREIGN KEY (order_id) REFERENCES customer_order(order_id);
 
 CREATE TABLE order_line (
   order_line_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
