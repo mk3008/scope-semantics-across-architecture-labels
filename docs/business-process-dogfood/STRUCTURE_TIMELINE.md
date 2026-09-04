@@ -22,4 +22,13 @@ Snapshot: `work/business-process-dogfood/runs/stage1/consistency-resolution/`.
 
 ## Stage 1 refactoring
 
-Not yet adopted. The earlier refactoring dispatch was immediately aborted because it targeted the resolution directory; no refactoring outcome is recorded here.
+Adopted snapshot: `work/business-process-dogfood/runs/stage1/refactoring-rerun-1/`.
+
+- Complete source tree: `src/app.js`.
+- Relevant physical path remains `src/app.js`; no directory was introduced.
+- Current semantic owner and consumer set are unchanged: Sales Quotation creation/search and the fixed Stage 1 caller/test.
+- Structural change: validation/read helpers are colocated in the `QuotationStore` boundary inside the existing file. No promotion/demotion or cross-scope sharing was introduced.
+- Diff: `evidence/diffs/stage1-refactoring.diff`.
+- Verification: PostgreSQL cumulative acceptance tests 2/2 pass.
+
+Stage 1 status: **complete**.

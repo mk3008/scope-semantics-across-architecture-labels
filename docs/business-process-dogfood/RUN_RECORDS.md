@@ -9,6 +9,7 @@
 | Stage 1 transaction-start expiry fix | Terra / medium | requested fresh | `c5d9d04` | current Stage 1 | **adopted post-resolution snapshot** — changed comparison to statement-time; tests 2/2 pass | actual model/session/timestamp unverified |
 | Stage 1 numeric NaN fix | Terra / medium | requested fresh | `c5d9d04` | current Stage 1 | **adopted post-resolution snapshot** — rejects NaN line values; tests 2/2 pass | actual model/session/timestamp unverified |
 | Stage 1 refactoring mis-dispatch | Terra / medium | requested fresh | `c5d9d04` | current Stage 1 | **aborted** immediately: dispatched against resolution directory; outcome not adopted and directory not reused | actual model/session/timestamp unverified |
+| Stage 1 refactoring rerun 1 | Terra / medium | requested fresh | `8459463` | current Stage 1 filtered rules | **adopted** — PostgreSQL integration/cumulative acceptance tests 2/2 pass | actual model/session/timestamp unverified |
 
 ## Worker-rule filtering
 
