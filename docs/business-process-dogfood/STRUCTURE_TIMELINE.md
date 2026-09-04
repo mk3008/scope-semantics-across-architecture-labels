@@ -32,3 +32,11 @@ Adopted snapshot: `work/business-process-dogfood/runs/stage1/refactoring-rerun-1
 - Verification: PostgreSQL cumulative acceptance tests 2/2 pass.
 
 Stage 1 status: **complete**.
+
+## Stage 2 — complete
+
+- Adopted post-resolution snapshot: `work/business-process-dogfood/runs/stage2/consistency-resolution/`.
+- Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage2/refactoring-rerun-1/`.
+- Complete source tree remains `src/app.js`; current semantic owners are Quotation lifecycle and Order creation with their present consumers.
+- Refactoring moved shared input validation to module functions and removed OrderStore dependence on QuotationStore internals. No file/directory move, promotion, or demotion occurred.
+- Diff: `evidence/diffs/stage2-refactoring.diff`; behavior verification 1/1 pass.

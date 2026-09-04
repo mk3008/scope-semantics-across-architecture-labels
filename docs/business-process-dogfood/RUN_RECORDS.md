@@ -13,6 +13,11 @@
 | Stage 2 implementation | Terra / medium | requested fresh | `87418fa` | Stage 2 filtered rules | behavior test pass 1/1; **not adopted pending blocker resolution** | actual model/session/timestamp unverified |
 | Stage 2 consistency review | Sol / medium | requested fresh/read-only | `87418fa` | cumulative Stage 2 | **HUMAN_BLOCKER** — five under-specifications, conditional data-model insufficiency; one non-blocking implementation defect | actual model/session/timestamp unverified |
 | Stage 2 resolution rerun 1 | Terra / medium | requested fresh | `6a6c66e` | HD-005..009 + current Stage 2 | **rejected** — worker edited frozen acceptance test; source output not adopted | actual model/session/timestamp unverified |
+| Stage 2 resolution rerun 2 | Terra / medium | requested fresh | `a295f98` | HD-005..009 + old test | **rejected** — old acceptance test conflicts with HD-007; test defect amendment recorded | actual model/session/timestamp unverified |
+| Stage 2 resolution rerun 3 | Terra / medium | requested fresh | `a295f98` | HD-005..009 + amended test | **adopted implementation** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
+| Stage 2 post-decision review | Sol / medium | requested fresh/read-only | `a295f98` | cumulative Stage 2 | HUMAN_BLOCKER none; HD-007 implementation gap found | actual model/session/timestamp unverified |
+| Stage 2 consistency resolution | Terra / medium | requested fresh | `a295f98` | HD-007 gap only | **adopted post-resolution snapshot** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
+| Stage 2 refactoring rerun 1 | Terra / medium | requested fresh | `a295f98` | current Stage 2 filtered rules | **adopted** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
 
 ## Worker-rule filtering
 
