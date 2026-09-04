@@ -18,6 +18,8 @@
 | Stage 2 post-decision review | Sol / medium | requested fresh/read-only | `a295f98` | cumulative Stage 2 | HUMAN_BLOCKER none; HD-007 implementation gap found | actual model/session/timestamp unverified |
 | Stage 2 consistency resolution | Terra / medium | requested fresh | `a295f98` | HD-007 gap only | **adopted post-resolution snapshot** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
 | Stage 2 refactoring rerun 1 | Terra / medium | requested fresh | `a295f98` | current Stage 2 filtered rules | **adopted** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
+| Stage 3 implementation | Terra / medium | requested fresh | `448135a` | Stage 3 filtered rules | behavior test 1/1 pass; **not adopted pending blocker resolution** | actual model/session/timestamp unverified |
+| Stage 3 consistency review | Sol / medium | requested fresh/read-only | `448135a` | cumulative Stage 3 | **HUMAN_BLOCKER** — performer authority/confirmation ownership; conditional actor-data insufficiency | actual model/session/timestamp unverified |
 
 ## Worker-rule filtering
 

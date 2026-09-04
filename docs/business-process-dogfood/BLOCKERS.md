@@ -19,3 +19,17 @@ Non-blocking implementation defect: Quotation header and lines are read in separ
 ## Stage 2 — resolved by HD-005 through HD-009
 
 The blocked implementation remains historical, not adopted. No DDL amendment is authorized. A fresh resolution run must implement decisions and fix the non-policy coherent-snapshot defect before review.
+
+## Stage 3 — HUMAN_BLOCKER
+
+First observable stage: Stage 3 cross-activity review. No Stage 3 refactoring or Stage 4 work is authorized.
+
+**HB-S3-01 — under-specification / performer authority and confirmation ownership**
+
+- Affected activities: manager approval/rejection; Order confirmation.
+- Affected data: `customer_order`, `order_approval`.
+- Facts: Sales and manager are distinct performers; manager makes approval decisions; confirmation performer and meaning of distinction are unspecified. Current API has no confirmation performer and accepts supplied manager ID.
+- Why not entailed: role-level separation externally enforced and individual-identity separation persisted/enforced are both compatible with current facts.
+- Minimum decision: identify confirmation performer; state whether distinction is role-only or individual-level; state whether manager identity/authorization is supplied by an already-authorized surrounding system.
+- Conditional schema impact: individual-level/persisted confirmation or Sales-vs-manager identity enforcement requires actor facts absent from frozen DDL. Role-level external authorization without audit can use current DDL.
+- Code/schema intentionally not changed: no actor schema, authorization matrix, confirmer record, or identity comparison.
