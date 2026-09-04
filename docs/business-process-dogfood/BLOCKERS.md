@@ -15,3 +15,7 @@ First observable stage: Stage 2 cross-activity consistency review. No Stage 2 re
 5. **under-specification / conditional data-model insufficiency — copied header projection**: “then-current header” is undefined. If it includes expiry/status, the frozen Order schema lacks fields/meaning for that snapshot; no schema change is made pending decision.
 
 Non-blocking implementation defect: Quotation header and lines are read in separate queries and can be non-snapshot-coherent during concurrent revision. This is fixable only after the blocker set is resolved and does not determine any policy.
+
+## Stage 2 — resolved by HD-005 through HD-009
+
+The blocked implementation remains historical, not adopted. No DDL amendment is authorized. A fresh resolution run must implement decisions and fix the non-policy coherent-snapshot defect before review.
