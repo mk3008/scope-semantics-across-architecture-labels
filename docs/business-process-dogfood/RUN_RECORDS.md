@@ -10,6 +10,8 @@
 | Stage 1 numeric NaN fix | Terra / medium | requested fresh | `c5d9d04` | current Stage 1 | **adopted post-resolution snapshot** — rejects NaN line values; tests 2/2 pass | actual model/session/timestamp unverified |
 | Stage 1 refactoring mis-dispatch | Terra / medium | requested fresh | `c5d9d04` | current Stage 1 | **aborted** immediately: dispatched against resolution directory; outcome not adopted and directory not reused | actual model/session/timestamp unverified |
 | Stage 1 refactoring rerun 1 | Terra / medium | requested fresh | `8459463` | current Stage 1 filtered rules | **adopted** — PostgreSQL integration/cumulative acceptance tests 2/2 pass | actual model/session/timestamp unverified |
+| Stage 2 implementation | Terra / medium | requested fresh | `87418fa` | Stage 2 filtered rules | behavior test pass 1/1; **not adopted pending blocker resolution** | actual model/session/timestamp unverified |
+| Stage 2 consistency review | Sol / medium | requested fresh/read-only | `87418fa` | cumulative Stage 2 | **HUMAN_BLOCKER** — five under-specifications, conditional data-model insufficiency; one non-blocking implementation defect | actual model/session/timestamp unverified |
 
 ## Worker-rule filtering
 
