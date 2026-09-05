@@ -24,3 +24,7 @@
 | BR-020 | Cancellation preserves/creates the current inventory obligation: reserved→release_requested; failed remains failed; requested remains pending its authoritative result. | HD-016 | Stage 6 resolution | Sales cancellation, inventory result | customer_order, inventory_reservation | active | Stage 6 `src/app.js` |
 | BR-021 | For a cancelled requested reservation, late failed→failed and late reserved→release_requested; neither result restores commercial confirmation. | HD-016 | Stage 6 resolution | inventory result handling | customer_order, inventory_reservation | active | Stage 6 `src/app.js` |
 | BR-022 | Only trusted inventory authority may complete release_requested→released; a cancelled Order does not have reserved inventory as a terminal local outcome. | HD-016 | Stage 6 resolution | inventory release completion | inventory_reservation | active | Stage 6 `src/app.js` |
+
+## Final implementation-location clarification
+
+The provisional `pending` labels above describe the point at which rules were first entered in this historical ledger. At the adopted Stage 6 snapshot all active BR-001 and BR-004..022 behaviors are implemented in `work/business-process-dogfood/runs/stage6/refactoring-rerun-1/src/app.js`; BR-002 and BR-003 remain historical pending labels because their row status was never normalized at the stage of first entry. This clarification does not alter the historical rows or claim original cumulative coverage.

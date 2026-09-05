@@ -64,11 +64,11 @@ Repository-observable counts only. No token count, elapsed human time, or cognit
 - Human blockers/decisions: HB-S5-01 resolved by HD-014; one decision. The observer-only provenance is decomposed in `FINDING_PROVENANCE.md`.
 - DDL amendments: none. Acceptance amendments: 007. Changed source files per run: one `src/app.js`; structural move: reservation behavior extracted into an in-file `InventoryReservationStore`, not a physical module move.
 
-## Stage 6 — factual in-progress record
+## Stage 6 — factual completion record
 
 - Target activities: Sales cancellation, trusted inventory reservation result, trusted release completion.
 - Implicated data: `customer_order.status`, `customer_order.shipment_at`, `inventory_reservation.order_id/status`; current DDL was assessed sufficient under HD-015/016 and no DDL amendment was made.
 - Human blocker/decisions: HB-S6-01 was decomposed observer-only in `FINDING_PROVENANCE.md`; HD-015 and HD-016 supplied cancellation/release semantics. External progress conditions are recorded as environment/verification assumptions, not Business Rules.
 - Runs to current evidence: one fresh Terra implementation; two fresh Sol reviews; fresh v2 and v3 verification runs; v3/v4 acceptance-instrument amendments correct measurement defects. No source implementation defect or new HUMAN_BLOCKER was reported by either Sol review.
-- Acceptance amendments: 008 (initial Stage 6), 009 (terminal paths), 010 (release authority), 011 (cancellation eligibility). v4 verification/adoption/refactoring remain pending.
+- Acceptance amendments: 008 (initial Stage 6), 009 (terminal paths), 010 (release authority), 011 (cancellation eligibility). Fresh v4 verification and Sol rereview found no HUMAN_BLOCKER; refactoring was adopted after 6/6 cumulative verification.
 - Changed source files in candidate: `src/app.js`. Structural moves: none; source remains one file. The independent inventory authority is a test-only fake and is not production DDL.

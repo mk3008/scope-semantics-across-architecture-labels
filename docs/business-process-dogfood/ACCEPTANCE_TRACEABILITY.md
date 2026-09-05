@@ -2,6 +2,8 @@
 
 This ledger is introduced by Protocol Amendment 001. `Current test location` is the post-review repair suite for Stage 1+2; it is not evidence that the original runs were cumulative.
 
+The current full active suite is `work/business-process-dogfood/frozen-tests/cumulative-stage6-v4.test.js`; it executes the still-active covered conditions through Stage 6 (PostgreSQL 6/6 pass after the adopted Stage 6 refactoring). The table retains earlier listed locations to show when each condition first became executable; those locations do not replace the current suite.
+
 | requirement / decision | rule | first stage | status | current test location | note |
 | --- | --- | --- | --- | --- | --- |
 | Quotation creation; nonblank identifiers; future expiry | HD-003, BR-004 | 1 | active | `work/business-process-dogfood/frozen-tests/cumulative-stage2-repair.test.js` | includes invalid customer/product and NaN cases |
