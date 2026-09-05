@@ -80,3 +80,19 @@ First observable stage: Stage 3 cross-activity review. No Stage 3 refactoring or
 ## Screened non-finding
 
 The trusted `{ id, role }` actor context is not classified as a business blocker in this fixture. HD-010 puts authentication/authorization at a trusted surrounding boundary; no untrusted transport is in scope. This is `non_business_false_positive` unless such a context is later exposed directly to an untrusted caller.
+
+## HB-S4-01 — Approval validity after approved Order revision
+
+- Stage: 4, exposed before implementation.
+- Evidence head: `bd7453297283c2563e4fbea0cadb57779414a8bf`.
+- Classification: `HUMAN_BLOCKER — under-specification`.
+- Discovery provenance: `explicitly_cued`.
+- Affected activities: Sales Order revision, manager approval, Sales confirmation.
+- Affected rules/data: approval lifecycle (BR-011/BR-012/BR-013), `customer_order.total_amount/status`, `order_line`, `order_approval`.
+- Current DDL sufficiency: conditional. Current schema records decisions but does not itself state whether a decision remains valid after line/total change; depending on the decision, revision/version/approval linkage data may become necessary.
+- Exact unresolved fact: Stage 4 permits revision of an approved unconfirmed Order and says its total can change, but does not state whether the existing approval remains valid, is invalidated, or must be reacquired (including when value crosses the inclusive threshold).
+- Viable alternatives: retain approval under stated conditions; invalidate and return to pending approval; or prohibit/limit revision. Exact policy and any required data must be decided by a human.
+- Minimum Human Decision: define approval validity and required state transition after approved-Order revision, including threshold crossing.
+- Intentionally not performed: Stage 4 implementation, DDL amendment, acceptance freeze for undecided policy, refactoring, and later-stage work.
+- Current cumulative acceptance: Stage 3 v4 is 3/3 pass; Stage 4 has no executable acceptance for this undecided policy.
+- Adopted/unadopted status: Stage 3 refactoring is adopted; Stage 4 has no implementation snapshot.

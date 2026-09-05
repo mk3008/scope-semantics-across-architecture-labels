@@ -28,6 +28,7 @@
 | Stage 3 coherence resolution rerun 3 | Terra / medium | requested fresh | `02b64dd` | cumulative v4 | **adopted implementation candidate** — PostgreSQL cumulative 3/3 pass | actual model/session/timestamp unverified |
 | Stage 3 final Sol review | Sol / medium | requested fresh/read-only | `02b64dd` | current Stage 1–3 | HUMAN_BLOCKER none; implementation defect none | actual model/session/timestamp unverified |
 | Stage 3 refactoring rerun 1 | Terra / medium | requested fresh | `02b64dd` | cumulative v4 | **adopted** — PostgreSQL cumulative 3/3 pass | actual model/session/timestamp unverified |
+| Stage 4 packet exposure | operator | n/a | `bd74532` | Stage 4 packet only | **blocked before implementation** — HB-S4-01 explicitly-cued approval-validity under-specification | no implementation/refactoring run; metadata n/a |
 
 ## Protocol amendment 001
 
