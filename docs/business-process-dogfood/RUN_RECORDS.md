@@ -20,7 +20,14 @@
 | Stage 2 refactoring rerun 1 | Terra / medium | requested fresh | `a295f98` | current Stage 2 filtered rules | **adopted** — PostgreSQL test 1/1 pass | actual model/session/timestamp unverified |
 | Stage 3 implementation | Terra / medium | requested fresh | `448135a` | Stage 3 filtered rules | behavior test 1/1 pass; **not adopted pending blocker resolution** | actual model/session/timestamp unverified |
 | Stage 3 consistency review | Sol / medium | requested fresh/read-only | `448135a` | cumulative Stage 3 | **HUMAN_BLOCKER** — performer authority/confirmation ownership; conditional actor-data insufficiency | actual model/session/timestamp unverified |
+| Stage 1+2 post-review cumulative repair | operator verification | n/a | `a0cd6ca` adopted Stage 2 refactoring snapshot | `cumulative-stage2-repair.test.js` | **adopted evaluation-instrument repair** — PostgreSQL cumulative acceptance 2/2 pass | not original preregistered cumulative evidence; timestamp unverified |
+
+## Protocol amendment 001
+
+The original preregistration's frozen-cumulative-test claim was not realized for Stage 1/2, and Stage 5/6 placeholders are not executable acceptance tests. `PROTOCOL_AMENDMENT_001.md` records the correction, pre-release-only scope, and prospective cumulative rule. The Stage 1+2 repair is distinct retrospective evidence.
 
 ## Worker-rule filtering
 
 The historical Business Rule timeline is not worker input. Before each Stage, Codex creates a `current accepted Business Rules` snapshot containing only rules active through that Stage. Stage 1 workers receive no Stage 2/3 pending rules; Stage 2 workers receive no Stage 3+ rules. Future packets, reviewer outputs from future state, and unrelated evidence are excluded.
+
+From Stage 3 resolution forward, each worker input must reproduce the complete text of all active rules, rather than only rule IDs. It additionally contains exact current DDL, cumulative requirements, applicable decisions, current adopted source, current cumulative acceptance, current packet, and the fixed placement sentence. The initial DDL deliberately exposes future tables; that leakage is a validity limitation, not future-packet disclosure.

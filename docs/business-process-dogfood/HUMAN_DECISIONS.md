@@ -35,3 +35,15 @@ Every direct or sourced Order has at least one Order Line. Duplicate product IDs
 ## HD-009 — sourced Order snapshot projection
 
 Copy Quotation customer_id to Order customer_id; set canonical source association; create draft Order; compute total from copied lines; copy product_id, quantity, unit_price. Do not copy Quotation expires_at/status. Later Quotation changes never change the Order/lines. No DDL amendment is required.
+
+## HD-010 — Order approval separation of duties
+
+`confirmOrder` is a Sales activity. An authorized Sales performer confirms an Order after all applicable approval requirements are satisfied. An authorized Sales performer may confirm an Order below the approval threshold without manager approval. The confirmer need not be the Sales individual who created the Order.
+
+Approval/rejection is a manager activity. Manager identity and manager-role authorization are supplied by a trusted, already-authenticated surrounding boundary. `manager_id` must not be accepted as an arbitrary impersonatable value from an untrusted caller.
+
+For an Order requiring manager approval, the manager who approves or rejects it must not be the same individual who created it. Role names alone are insufficient: a person with both Sales and manager roles may not decide an Order that person created; another authorized manager may.
+
+Order creator identity is required Business Data. `customer_order.created_by` records the opaque external identifier supplied by trusted authenticated Sales actor context for direct Order creation and Quotation-to-Order creation. No identity/user master data is created.
+
+`order_approval.manager_id` records the trusted manager who decided. Approval/rejection is rejected when it equals `customer_order.created_by`. Current requirements do not require persisted confirmer identity, a creator/confirmer relation, general audit history, or `confirmed_by`.

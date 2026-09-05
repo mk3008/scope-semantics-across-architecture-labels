@@ -1,0 +1,14 @@
+# Human Decision impact record
+
+| decision | first observable stage | affected activities | rules created/changed | data / DDL impact | acceptance impact | newly testable property | removed scope / reason |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HD-001 | 1 | quotation creation, search | BR-004 | `quotation.expires_at`; no amendment | future creation and readable business-expired quotation | statement-time expiry behavior | none |
+| HD-002 | 1 | quotation creation | BR-005 | `quotation_line`; no amendment | reject empty lines, accept duplicates | minimum line cardinality | none |
+| HD-003 | 1 | quotation creation/search | identifier constraints | existing text identifiers | reject blank customer/product | opaque nonblank identifier handling | master-data/auth/audit behavior not in scope |
+| HD-004 | 1 | quotation search | search contract | existing quotation/line data | exact deterministic search | smallest search result contract | paging/fuzzy/transport shape not in scope |
+| HD-005 | 2 | quotation-to-order conversion | BR-006 | existing quotation/order data | eligibility rejection | no expired/ordered/associated conversion | none |
+| HD-006 | 2 | conversion | BR-001, BR-006 | canonical `customer_order.quotation_id`; prior DDL amendment | conversion state/association test | atomic ordered association | no additional DDL merely for invariant |
+| HD-007 | 2 | quotation revision | BR-007 | existing quotation/order data | eligibility and read-only test | coherent eligible revision | post-conversion normal-operation revision removed |
+| HD-008 | 2 | direct/sourced order creation | BR-008 | `order_line`; no amendment | reject empty order lines | order cardinality | none |
+| HD-009 | 2 | conversion | BR-002, BR-009 | `customer_order`, `order_line`; no amendment | snapshot test | copied total and lines | copying source expiry/status excluded |
+| HD-010 | 3 | direct/sourced order creation, approval, confirmation | BR-010, BR-011 | `customer_order.created_by`; DDL Amendment 002 | actor, separation-of-duties, and confirmation tests | creator cannot decide own approval-required Order | confirmer identity/audit not required |

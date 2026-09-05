@@ -16,6 +16,7 @@ CREATE TABLE quotation_line (
 CREATE TABLE customer_order (
   order_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   customer_id TEXT NOT NULL,
+  created_by TEXT NOT NULL,
   quotation_id BIGINT UNIQUE REFERENCES quotation(quotation_id),
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'pending_approval', 'approved', 'rejected', 'confirmed', 'cancelled')),
   total_amount NUMERIC(14, 2) NOT NULL DEFAULT 0 CHECK (total_amount >= 0),

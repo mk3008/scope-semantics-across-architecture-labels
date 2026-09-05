@@ -23,3 +23,7 @@ No expected tree, layer, or shared-code objective is supplied. After every imple
 ## Prospective blocker calibration
 
 An omitted detail is a HUMAN_BLOCKER only when its resolution changes a Business Process/Activity outcome, allowed/forbidden business state or transition, Business Rule/invariant/consistency constraint, performer authority, Business Data meaning/cardinality/identity, cross-activity consistency, or ability of frozen Data Model to represent required facts. Implementation/API/UI/query/formatting/performance/logging/naming/pagination/serialization choices are made minimally and reversibly, and recorded as implementation assumptions only if material.
+
+## Historical correction and prospective protocol
+
+See [PROTOCOL_AMENDMENT_001.md](PROTOCOL_AMENDMENT_001.md). The original statement that all cumulative acceptance tests were frozen before Stage 1 was not realized: Stage 1 and Stage 2 tests were not run cumulatively against later source, and the Stage 5 and Stage 6 files are placeholders rather than executable acceptance tests. Historical artifacts and results remain unchanged. From the Stage 1+2 repair onward, every adopted snapshot must pass executable acceptance conditions for every still-active requirement, rule, and applicable human decision through that stage.
