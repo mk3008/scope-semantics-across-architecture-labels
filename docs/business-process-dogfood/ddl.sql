@@ -19,7 +19,7 @@ CREATE TABLE customer_order (
   created_by TEXT NOT NULL,
   quotation_id BIGINT UNIQUE REFERENCES quotation(quotation_id),
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'pending_approval', 'approved', 'rejected', 'confirmed', 'cancelled')),
-  total_amount NUMERIC(14, 2) NOT NULL DEFAULT 0 CHECK (total_amount >= 0),
+  total_amount NUMERIC NOT NULL DEFAULT 0 CHECK (total_amount >= 0 AND total_amount = round(total_amount, 2)),
   shipment_at TIMESTAMPTZ
 );
 

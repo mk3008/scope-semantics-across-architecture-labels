@@ -47,3 +47,19 @@ For an Order requiring manager approval, the manager who approves or rejects it 
 Order creator identity is required Business Data. `customer_order.created_by` records the opaque external identifier supplied by trusted authenticated Sales actor context for direct Order creation and Quotation-to-Order creation. No identity/user master data is created.
 
 `order_approval.manager_id` records the trusted manager who decided. Approval/rejection is rejected when it equals `customer_order.created_by`. Current requirements do not require persisted confirmer identity, a creator/confirmer relation, general audit history, or `confirmed_by`.
+
+## HD-011 — Approval-required Order enters pending approval at creation
+
+Approval requirement is determined from the completed Order total when an Order is created. For direct Order creation and Quotation-to-Order creation, initial status is `pending_approval` when `total_amount >= 1000.00`, and `draft` when `total_amount < 1000.00`. Creating an approval-required Order itself places it into the manager's approval-waiting work; there is no separate Sales submit-for-approval Activity. This applies equally to direct and quotation-originated Orders unless a later requirement distinguishes them.
+
+HD-011 supersedes only the initial-status portion of HD-009 that said every sourced Order is created `draft`. HD-009's customer, canonical association, copied-line, calculated-total, source-field-exclusion, and snapshot semantics remain active.
+
+For high-value Orders, creation yields `pending_approval`; it cannot confirm while pending; an authorized manager other than its creator may approve/reject; approval yields `approved`; rejection yields `rejected`; confirmation requires approval and approval-satisfied status. For lower-value Orders, creation yields `draft`, manager approval is not required, and authorized Sales may confirm directly. The inclusive threshold is `total_amount >= 1000.00`. `rejected` cannot currently confirm; resubmission, revision-after-rejection, automatic cancellation, and new approval are not defined.
+
+## HD-012 — No current business maximum for Order total
+
+Current requirements set no business maximum for Order line count or aggregate total. Do not invent a maximum to fit the schema. Existing line constraints remain (`quantity > 0`, `unit_price >= 0`, with their current numeric input precision), but the aggregate must represent any total produced by otherwise-valid current Order Lines within PostgreSQL numeric capabilities.
+
+Order total is `round(sum(quantity * unit_price), 2)` using exact decimal arithmetic: round once after summing exact line extensions. It is non-negative with at most two fractional digits. Approval eligibility compares this stored total to `1000.00`. JavaScript binary floating point is not authoritative.
+
+For every Order, `total_amount` equals the rounded exact sum of its current Order Lines, is never negative, and determines approval eligibility. No Business Rule imposes a maximum Order total; PostgreSQL technical capacity is not a business maximum.

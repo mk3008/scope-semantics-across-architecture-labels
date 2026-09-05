@@ -11,6 +11,9 @@ This ledger is introduced by Protocol Amendment 001. `Current test location` is 
 | Quotation-to-Order conversion; one canonical association; atomic ordered/read-only result | BR-001, BR-006 | 2 | active | `cumulative-stage2-repair.test.js` | second conversion rejected |
 | Direct and sourced Orders have one or more lines | BR-008 | 2 | active | `cumulative-stage2-repair.test.js` | direct order is allowed |
 | Sourced Order is conversion-time snapshot | BR-002, BR-009 | 2 | active | `cumulative-stage2-repair.test.js` | post-conversion source mutation is no longer a normal-operation property under HD-007 |
+| Initial status and approval routing by inclusive threshold | HD-011, BR-012 | 3 | active | `cumulative-stage3-v2.test.js` | high-value direct and sourced Orders enter pending approval; low value is draft |
+| Creator/manager separation and Sales confirmation | HD-010, BR-010, BR-011 | 3 | active | `cumulative-stage3-v2.test.js` | self decision rejected; approved high value confirms; rejected/pending does not |
+| Exact Order total, round-once semantics, no old precision overflow | HD-012, BR-013 | 3 | active | `cumulative-stage3-v2.test.js` | includes below/equal/above threshold and a former-precision-overflow total |
 
 ## Superseded/removed observation
 
