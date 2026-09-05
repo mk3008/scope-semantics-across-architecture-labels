@@ -33,3 +33,50 @@ First observable stage: Stage 3 cross-activity review. No Stage 3 refactoring or
 - Minimum decision: identify confirmation performer; state whether distinction is role-only or individual-level; state whether manager identity/authorization is supplied by an already-authorized surrounding system.
 - Conditional schema impact: individual-level/persisted confirmation or Sales-vs-manager identity enforcement requires actor facts absent from frozen DDL. Role-level external authorization without audit can use current DDL.
 - Code/schema intentionally not changed: no actor schema, authorization matrix, confirmer record, or identity comparison.
+# Active blockers
+
+## HB-S3-02 — High-value sourced Order initial state is inconsistent
+
+- Stage: 3 resolution review
+- Evidence head: `749f4b55ee17056891c681afd3e33c70fd690215` (implementation snapshot is unadopted pending decision)
+- Classification: `HUMAN_BLOCKER — inconsistency`
+- Discovery provenance: `latent_cross_activity`
+- Affected activities: quotation-to-Order conversion, direct/sourced Order creation, approval-waiting search, manager decision, Sales confirmation.
+- Affected Business Rules: sourced Order snapshot rule (new draft status), approval threshold/confirmation rule.
+- Affected tables/data: `customer_order.status`, `customer_order.total_amount`, `order_approval`.
+- Current DDL sufficiency: sufficient for either viable policy; existing status values include `draft` and `pending_approval`.
+- Exact inconsistency: the active sourced-Order snapshot rule says conversion creates a new `draft` Order, while the Stage 3 implementation automatically makes every Order at or above 1000.00 `pending_approval`. If high-value Orders must begin `draft`, the process lacks a defined performer/activity/transition that submits them for approval; confirmation must also prevent a high-value draft from bypassing approval.
+- Viable alternatives: (1) amend the sourced-Order snapshot rule so high-value Orders become `pending_approval` at creation; or (2) retain `draft` for all and define the required submission transition/authority and its confirmation precondition.
+- Minimum Human Decision: define the initial status/transition for a high-value sourced Order and the corresponding confirmation eligibility invariant.
+- Intentionally not performed: no code repair, DDL amendment, acceptance amendment, refactoring, or later-stage work.
+- Current cumulative acceptance: 2/2 pass, but the review found incomplete coverage; it is not sufficient to resolve this contradiction.
+- Adopted/unadopted status: `work/business-process-dogfood/runs/stage3/resolution-rerun-1/` is **unadopted**.
+
+## HB-S3-03 — Order total amount has no representable upper bound
+
+- Stage: 3 resolution review
+- Evidence head: `749f4b55ee17056891c681afd3e33c70fd690215` (implementation snapshot is unadopted pending decision)
+- Classification: `HUMAN_BLOCKER — data-model insufficiency`
+- Discovery provenance: `latent_cross_activity`
+- Affected activities: Quotation line creation, direct/sourced Order creation, approval threshold.
+- Affected Business Rules: quotation and Order line cardinality/duplicate rules, Order total/approval rule.
+- Affected tables/data: `quotation_line.quantity`, `quotation_line.unit_price`, `order_line.quantity`, `order_line.unit_price`, `customer_order.total_amount`.
+- Current DDL sufficiency: insufficient for the currently uncapped valid line domain. Two valid `NUMERIC(14,2)` lines with quantity 1.00 and unit price 999999999999.99 total 1999999999999.98, which cannot be stored in `customer_order.total_amount NUMERIC(14,2)`.
+- Exact unresolved facts: no business maximum for Order total, line count, quantity, or unit price exists; duplicate products are allowed and line count is unbounded.
+- Viable alternatives: (1) widen `customer_order.total_amount`; or (2) define business limits that bound aggregate total and enforce them at every relevant entry. The choice cannot be made from the existing requirements.
+- Minimum Human Decision: choose the business representation/range policy for Order total and, if limits are chosen, state the limits.
+- Intentionally not performed: no code repair, DDL amendment, acceptance amendment, refactoring, or later-stage work.
+- Current cumulative acceptance: 2/2 pass, but it lacks the numeric representation boundary.
+- Adopted/unadopted status: `work/business-process-dogfood/runs/stage3/resolution-rerun-1/` is **unadopted**.
+
+## Non-blocking defects retained for resolution after decisions
+
+| finding | classification | provenance | action deferred |
+| --- | --- | --- | --- |
+| `confirm` currently permits any `draft` Order, so a high-value draft could bypass approval if the human selects a draft-first policy | implementation defect | latent_cross_activity | repair after HB-S3-02 determines the intended transition |
+| fixed 2030/2031 success timestamps will eventually invalidate an otherwise correct frozen fixture | implementation defect | explicitly_cued | amend acceptance instrument after blocker decisions; no business rule change needed |
+| current Stage 3 cumulative suite is not yet complete for all active rules (threshold boundary, approval search/role, high-value sourced state, full snapshot fields, expiry eligibility, association/atomicity, deterministic search, numeric boundary) | implementation defect | explicitly_cued | expand after both blockers are decided; do not infer policy while doing so |
+
+## Screened non-finding
+
+The trusted `{ id, role }` actor context is not classified as a business blocker in this fixture. HD-010 puts authentication/authorization at a trusted surrounding boundary; no untrusted transport is in scope. This is `non_business_false_positive` unless such a context is later exposed directly to an untrusted caller.

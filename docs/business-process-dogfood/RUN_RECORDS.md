@@ -21,6 +21,8 @@
 | Stage 3 implementation | Terra / medium | requested fresh | `448135a` | Stage 3 filtered rules | behavior test 1/1 pass; **not adopted pending blocker resolution** | actual model/session/timestamp unverified |
 | Stage 3 consistency review | Sol / medium | requested fresh/read-only | `448135a` | cumulative Stage 3 | **HUMAN_BLOCKER** — performer authority/confirmation ownership; conditional actor-data insufficiency | actual model/session/timestamp unverified |
 | Stage 1+2 post-review cumulative repair | operator verification | n/a | `a0cd6ca` adopted Stage 2 refactoring snapshot | `cumulative-stage2-repair.test.js` | **adopted evaluation-instrument repair** — PostgreSQL cumulative acceptance 2/2 pass | not original preregistered cumulative evidence; timestamp unverified |
+| Stage 3 HD-010 resolution implementation | Terra / medium | requested fresh | `749f4b5` | amended DDL + self-contained rules v2 + cumulative Stage 3 | **unadopted pending review blockers** — PostgreSQL cumulative acceptance 2/2 pass; frozen test hash unchanged | actual model/session/timestamp unverified |
+| Stage 3 HD-010 consistency review | Sol / medium | requested fresh/read-only | `749f4b5` | Stage 1–3 current state | **HUMAN_BLOCKER** — HB-S3-02 inconsistency and HB-S3-03 data-model insufficiency; three implementation/instrument defects | actual model/session/timestamp unverified; test not executed by read-only reviewer |
 
 ## Protocol amendment 001
 

@@ -20,3 +20,4 @@ This append-only freeze is after Protocol Amendment 001 and before the fresh Sta
 | Stage 3 packet | `71412dbbfb1b4056ae1b3b602b09176956fa6a6e4f746e2f62898ac6eb71ffd8` |
 | complete Stage 3 active-rule input v2 | `497ab47e3da0397be21d6b6d685bf8d6a6b454a11783e2c91087da2ae97bbd8d` |
 | Stage 3 cumulative acceptance | `a4dd6e618b4b7e7afe1d281d585a7d93c966641cd6375dc79859291d402a21ff` |
+| Stage 3 resolution implementation prompt | `fae0be0b56690e0ae062079676b91ece4e3a22e67978a4a4538f311da8d3ddf1` |

@@ -9,4 +9,5 @@ This packet is populated after each consistency review and at final review. It p
 - Human-decision effect record: `HUMAN_DECISION_IMPACT.md`.
 - Retrospective finding provenance: `FINDING_PROVENANCE.md`.
 - Stage 3 amendment inputs and hashes: `FREEZE_STAGE3_AMENDMENT.md`.
+- Stage 3 resolution review: `reviews/stage3-resolution-sol-review.md`; scope/burden evidence: `STAGE_SCOPE_AND_BURDEN.md`.
 - The full final review must state that this study evaluates only pre-release structural/data-model evolution and does not establish safe post-release evolution.

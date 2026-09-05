@@ -49,3 +49,13 @@ Stage 1 status: **complete**.
 - Consumers: fixed application entry and repaired cumulative Stage 1+2 acceptance suite.
 - Verification: `work/business-process-dogfood/frozen-tests/cumulative-stage2-repair.test.js`, PostgreSQL 2/2 pass.
 - This is an instrument-repair baseline, not a retroactive claim about original Stage 1/2 cumulative verification.
+
+## Stage 3 HD-010 resolution implementation — unadopted
+
+- Snapshot: `work/business-process-dogfood/runs/stage3/resolution-rerun-1/`.
+- Complete source tree: `src/app.js`.
+- Added semantic responsibilities: trusted actor-context validation, Order creator identity, approval waiting/decision, and Sales confirmation.
+- Consumers: fixed application entry and frozen Stage 3 cumulative acceptance only.
+- Apparent physical scope: single file; no move/promotion/demotion was performed.
+- Verification: full currently frozen cumulative Stage 3 test 2/2 pass.
+- Status: **unadopted**. The fresh Sol review found HB-S3-02 and HB-S3-03; no structural interpretation is adopted and refactoring has not occurred.
