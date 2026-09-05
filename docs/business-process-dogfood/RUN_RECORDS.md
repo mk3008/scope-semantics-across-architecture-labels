@@ -43,6 +43,8 @@
 | Stage 6 acceptance amendment 011 / verification | Terra / medium | requested fresh | consistency-resolution snapshot | cumulative Stage 6 v4 | **adopted implementation evidence** — PostgreSQL 6/6 pass; confirmed/unshipped non-Sales cancellation is rejected with state unchanged | actual model/session unverified; fresh verification 2026-09-05 12:45:44–12:45:46 JST |
 | Stage 6 v4 consistency rereview | Sol / medium | requested fresh/read-only | verification-v4 snapshot | cumulative Stage 6 v4 | HUMAN_BLOCKER none; no implementation or targeted acceptance-instrument defect found | actual model/session/timestamp unverified; reviewer executed disposable-DB 6/6 pass |
 | Stage 6 refactoring rerun 1 | Terra / medium | requested fresh | adopted Stage 6 v4 snapshot | cumulative Stage 6 v4 | **adopted** — PostgreSQL cumulative 6/6 pass | actual model/session/timestamp unverified |
+| Stage 6 final independent review | Sol / medium | requested fresh/read-only | `03048e9` | frozen cumulative Stage 6 v4 | **adopted review evidence** — disposable PostgreSQL 6/6 pass; one-case/pre-release findings and limitations recorded | actual model/session/timestamp unverified; `reviews/stage6-final-sol-review.md` |
+| Stage 6 final evidence rereview | Sol / medium | requested fresh/read-only | `a7a2f6f` | final evidence indexes | HUMAN_BLOCKER none; found only two bookkeeping freshness defects, corrected after this review | actual model/session/timestamp unverified |
 
 ## Protocol amendment 001
 
