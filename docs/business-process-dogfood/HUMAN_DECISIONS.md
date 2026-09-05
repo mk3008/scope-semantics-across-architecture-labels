@@ -63,3 +63,9 @@ Current requirements set no business maximum for Order line count or aggregate t
 Order total is `round(sum(quantity * unit_price), 2)` using exact decimal arithmetic: round once after summing exact line extensions. It is non-negative with at most two fractional digits. Approval eligibility compares this stored total to `1000.00`. JavaScript binary floating point is not authoritative.
 
 For every Order, `total_amount` equals the rounded exact sum of its current Order Lines, is never negative, and determines approval eligibility. No Business Rule imposes a maximum Order total; PostgreSQL technical capacity is not a business maximum.
+
+## HD-013 — Revising an approved Order invalidates its approval
+
+Manager approval applies to the Order content present when it was made, including Order Lines, quantity, unit_price, and resulting total_amount. An effective revision of approved but unconfirmed Order content invalidates the approval even if total remains unchanged or remains above threshold. A no-op request need not invalidate approval.
+
+After effective revision, total >= 1000.00 yields `pending_approval` and requires a new approval; total < 1000.00 yields `draft` and needs no approval. The threshold is inclusive. Delete/invalidate the current approval record within the revision transaction; current requirements do not require approval history, version numbers, audit tables, or new Business Data. Revision is only for approved, unconfirmed Orders by authorized Sales. It does not change a source Quotation or Quotation Lines. Rejected, draft, pending, confirmed, and cancelled lifecycle edits are not broadened.
