@@ -15,3 +15,5 @@
 | Stage 2 v5 verification | fresh Terra / medium | **unadopted / inconclusive** — mechanical gate repair recorded but local PostgreSQL authentication failed before schema creation | actual model/session unverified |
 | Stage 2 v6 verification and review | fresh Terra / medium; fresh Sol / medium read-only | accepted candidate — Stage 1 v3 + Stage 2 v4 cumulative pass, repaired S2-10 gate executed, cleanup 0, no blocker | actual model/session unverified |
 | Stage 2 post-acceptance refactoring | fresh Terra / medium | adopted — source files unchanged after ownership/consumer reassessment; cumulative v4 pass and cleanup 0 | actual model/session unverified |
+| Stage 3 acceptance design and implementation | fresh Terra / medium | **unadopted** — frozen cumulative contract and implementation snapshot recorded; raw run emitted Stage 1–3 pass markers with cleanup 0 | actual model/session unverified |
+| Stage 3 cross-activity consistency review | fresh Sol / medium, read-only | HUMAN_BLOCKER HB-WV-S3-01 — existing open-request outcome at safety closure was not determined; two acceptance-instrument defects also recorded | actual model/session unverified |
