@@ -67,3 +67,10 @@ Stage 1 status: **complete**.
 - Complete source tree remains `src/app.js`. Current semantic owners are Quotation lifecycle, Order creation/snapshot, approval lifecycle, actor separation, and coherent search results; current consumers are the fixed application entry and cumulative acceptance.
 - Refactoring colocated total calculation and initial approval-state determination in `OrderStore.initializeOrder`; no directory or module move, promotion, demotion, split, or speculative structure occurred.
 - Verification: full Stage 1–3 cumulative v4 PostgreSQL acceptance 3/3 pass after refactoring.
+
+## Stage 4 — complete
+
+- Adopted implementation snapshot: `work/business-process-dogfood/runs/stage4/consistency-resolution/`.
+- Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage4/refactoring-rerun-1/`.
+- Refactoring introduced `OrderStore.writeOrderLines` for its two current Order consumers (direct creation and approved-Order revision); no directory/module move or speculative structure.
+- Verification: full Stage 1–4 cumulative v2 PostgreSQL acceptance 4/4 pass after refactoring.

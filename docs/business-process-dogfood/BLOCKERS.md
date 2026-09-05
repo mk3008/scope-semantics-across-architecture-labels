@@ -96,3 +96,19 @@ The trusted `{ id, role }` actor context is not classified as a business blocker
 - Intentionally not performed: Stage 4 implementation, DDL amendment, acceptance freeze for undecided policy, refactoring, and later-stage work.
 - Current cumulative acceptance: Stage 3 v4 is 3/3 pass; Stage 4 has no executable acceptance for this undecided policy.
 - Adopted/unadopted status: Stage 3 refactoring is adopted; Stage 4 has no implementation snapshot.
+
+## HB-S5-01 — Reservation result semantics and authority
+
+- Stage: 5, exposed before implementation.
+- Evidence head: current Stage 4 adopted state.
+- Classification: `HUMAN_BLOCKER — under-specification`.
+- Discovery provenance: `explicitly_cued`.
+- Affected activities: Sales confirmation, inventory reservation request, asynchronous reservation result handling.
+- Affected rules/data: confirmation eligibility; `customer_order.status`; `inventory_reservation.status/requested_at`.
+- Current DDL sufficiency: unknown until business outcome/authority are defined. State names alone do not define their meaning or transitions.
+- Exact unresolved facts: who/what authority records asynchronous `reserved` or `failed`; what a failed reservation means for commercially confirmed Order; whether and how Order state changes after reserved/failed; permitted transitions from requested; required behavior if result arrives after other activity.
+- Viable alternatives: retain commercial confirmation while recording reservation outcome; cancel/reopen/escalate Order; or another explicitly defined business process. No alternative is entailed by the packet.
+- Minimum Human Decision: define reservation-result authority, allowed state transitions, and commercial Order consequences for `reserved` and `failed`.
+- Intentionally not performed: Stage 5 acceptance freeze, implementation, schema amendment, refactoring, or later-stage work.
+- Current cumulative acceptance: Stage 1–4 v2 is 4/4 pass. Stage 5 placeholder is not an executable acceptance test.
+- Adopted/unadopted status: Stage 4 refactoring adopted; Stage 5 has no implementation snapshot.
