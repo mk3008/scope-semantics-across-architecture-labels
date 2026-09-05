@@ -128,3 +128,17 @@ The trusted `{ id, role }` actor context is not classified as a business blocker
 - Intentionally not performed: Stage 6 acceptance freeze, implementation, DDL amendment, refactoring, or final review.
 - Current cumulative acceptance: Stage 1–5 is 5/5 pass; Stage 6 placeholder is not executable.
 - Adopted/unadopted status: Stage 5 refactoring adopted; Stage 6 has no implementation snapshot.
+
+### Observer-only decomposition and provenance
+
+| question | packet evidence | provenance |
+| --- | --- | --- |
+| A. cancellation performer/authority | omitted | uncertain |
+| B. eligibility and authoritative meaning of “before shipment” | “before shipment” stated, fact mapping omitted | uncertain |
+| C. release initiation/completion authority | release need stated, authority omitted | uncertain |
+| D. reservation/release transition system | DDL names and release need stated, transitions omitted | uncertain |
+| E. cancellation while requested | stated | explicitly_cued |
+| F. late reservation result after cancellation | stated | explicitly_cued |
+| G. environment assumptions behind “ultimately retain no inventory” | outcome stated, external progress assumptions omitted | uncertain |
+
+This decomposition preserves the original blocker. The late-result race is not a latent discovery; the concrete authority/transition questions were not supplied by the packet.

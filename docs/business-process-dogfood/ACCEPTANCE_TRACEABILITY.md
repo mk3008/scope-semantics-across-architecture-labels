@@ -14,6 +14,11 @@ This ledger is introduced by Protocol Amendment 001. `Current test location` is 
 | Initial status and approval routing by inclusive threshold | HD-011, BR-012 | 3 | active | `cumulative-stage3-v2.test.js` | high-value direct and sourced Orders enter pending approval; low value is draft |
 | Creator/manager separation and Sales confirmation | HD-010, BR-010, BR-011 | 3 | active | `cumulative-stage3-v2.test.js` | self decision rejected; approved high value confirms; rejected/pending does not |
 | Exact Order total, round-once semantics, no old precision overflow | HD-012, BR-013 | 3 | active | `cumulative-stage3-v2.test.js` | includes below/equal/above threshold and a former-precision-overflow total |
+| Approved unconfirmed Order revision invalidates approval and re-evaluates threshold | HD-013, BR-014 | 4 | active | `work/business-process-dogfood/frozen-tests/cumulative-stage4-v2.test.js` | covers above/below/equal threshold, confirmation gating, and reapproval |
+| Approval invalidation applies to changed content even with equal total; sourced Quotation remains independent | HD-013, BR-014 | 4 | active | `cumulative-stage4-v2.test.js` | equal-total changed-lines and source snapshot comparison |
+| Confirmation atomically creates one requested reservation | HD-014, BR-015 | 5 | active | `work/business-process-dogfood/frozen-tests/cumulative-stage5.test.js` | covers current eligible low/high confirmation paths |
+| Trusted inventory result authority and requested result transitions | HD-014, BR-017, BR-018 | 5 | active | `cumulative-stage5.test.js` | rejects Sales result; covers requested→reserved and requested→failed |
+| Commercial Order stays confirmed after reservation result; conflicting terminal result rejected | HD-014, BR-016, BR-018 | 5 | active | `cumulative-stage5.test.js` | no retry/recovery/release behavior is claimed |
 
 ## Superseded/removed observation
 

@@ -77,3 +77,13 @@ Commercial confirmation and inventory reservation are separate facts. Once `conf
 Confirmation atomically leaves a confirmed Order with exactly one `inventory_reservation` in `requested`. `requested` means no authoritative result yet; `reserved` and `failed` mean trusted inventory-system success/failure respectively. Only trusted inventory-result context records either result; no persisted actor identity is required.
 
 Stage 5 allows only `requested -> reserved` and `requested -> failed`. A conflicting later result cannot overwrite a terminal Stage 5 result. No retry, duplicate-delivery contract, recovery, re-request, release, failure reason, or post-failure commercial resolution is defined. `release_requested` and `released` are not current activities merely because they appear in DDL. Future interaction with later Activities is deferred.
+
+## HD-015 — Sales may cancel an unshipped confirmed Order
+
+Cancellation is a Sales activity. Authorized Sales may cancel only when `customer_order.status = confirmed` and `shipment_at IS NULL`. `shipment_at IS NOT NULL` is the authoritative local fact that actual shipment occurred; it is supplied by a trusted surrounding shipment/fulfillment boundary. Cancellation immediately makes the Order `cancelled`; it does not wait for inventory cleanup. No cancellation for draft, pending, approved, rejected, already-cancelled, or shipped confirmed Orders; no restore/reopen/uncancel behavior is defined.
+
+## HD-016 — Inventory release semantics
+
+A cancelled Order must not permanently retain inventory. Release is asynchronous from commercial cancellation. Cancelling a reserved reservation changes it to `release_requested`; cancellation after `failed` leaves it failed; cancellation while `requested` leaves it requested. A late trusted `failed` result on a cancelled requested reservation yields `failed`; a late trusted `reserved` result yields `release_requested`, never restores the Order to confirmed. Only trusted inventory context completes `release_requested -> released`.
+
+Safety: cancelled Orders never return from cancelled due to inventory result; late reservation success is not ignored; outstanding cleanup remains represented until authoritative completion. Conditional liveness: subject to the external inventory boundary eventually producing requested results, completing processable release requests, and the application continuing to process events, each cancelled Order reaches failed or released. Permanent external outage is not claimed to release physical inventory; local release obligation must remain represented.

@@ -15,4 +15,16 @@ Stage 4's published approval-validity-after-revision ambiguity, if it becomes a 
 
 ## Observer-only correction — HB-S5-01
 
-HB-S5-01 discovery provenance is `latent_cross_activity`, not `explicitly_cued`. The packet states asynchronous reservation and separation from commercial confirmation, but only connecting those activities makes result authority, failed-result consequence, allowed transition, and post-result Order state necessary. This correction is not worker input.
+HB-S5-01 contained mixed observations. This correction is not worker input.
+
+| sub-finding | packet evidence | provenance | explanation |
+| --- | --- | --- | --- |
+| async reservation and commercial/reservation separation | stated | explicitly_cued | packet directly supplies both facts |
+| result authority | omitted | uncertain | not inferable from a single stated activity or DDL name |
+| failed-result commercial consequence | omitted | latent_cross_activity | only becomes required when confirmation and asynchronous failure are related |
+| allowed result transitions | omitted | uncertain | state names do not define a transition system |
+| later-Activity interaction | omitted | uncertain | no then-visible later activity supplied its own semantics |
+
+## Observer-only correction — HB-S3-02
+
+HB-S3-02 was not homogeneous. The implementation's `pending_approval` outcome against then-active sourced-Order `draft` wording is an implementation/requirement mismatch. Retaining `draft` exposes a separate Business Process under-specification: no activity/transition moved a high-value draft into approval waiting. The sourced `draft` wording was explicit in then-active HD-009; the missing transition was obtained by relating source conversion, approval, and confirmation (`latent_cross_activity`).

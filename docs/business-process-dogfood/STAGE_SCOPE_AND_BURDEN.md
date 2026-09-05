@@ -47,3 +47,19 @@ Repository-observable counts only. No token count, elapsed human time, or cognit
 - Final HUMAN_BLOCKER count after HD-011/HD-012: 0.
 - Additional DDL amendment: DDL Amendment 003; additional acceptance amendments: 002, 003, 004.
 - Final structure change: internal colocation only; no physical move.
+
+## Stage 4 — factual completion record
+
+- Target activities: Sales approved-Order revision, manager reapproval/rejection, Sales confirmation.
+- Implicated rules/data: approval invalidation/threshold/confirmation; `customer_order`, `order_line`, `order_approval`, source quotation association.
+- Runs: one implementation, one fresh Sol review, two fresh defect-resolution runs, one fresh re-review, one refactoring; no rejected/aborted run recorded.
+- Human blockers/decisions: HB-S4-01 (explicitly cued) resolved by HD-013; one decision.
+- DDL amendments: none. Acceptance amendments: 005 and 006. Changed source files per run: one `src/app.js`; physical moves: none.
+
+## Stage 5 — factual completion record
+
+- Target activities: Sales confirmation, reservation request, trusted asynchronous inventory result.
+- Implicated rules/data: confirmation postcondition, result authority, requested/reserved/failed transitions, commercial/inventory independence; `customer_order`, `inventory_reservation`.
+- Runs: one implementation, one fresh Sol review, one refactoring; no rejected/aborted run recorded.
+- Human blockers/decisions: HB-S5-01 resolved by HD-014; one decision. The observer-only provenance is decomposed in `FINDING_PROVENANCE.md`.
+- DDL amendments: none. Acceptance amendments: 007. Changed source files per run: one `src/app.js`; structural move: reservation behavior extracted into an in-file `InventoryReservationStore`, not a physical module move.
