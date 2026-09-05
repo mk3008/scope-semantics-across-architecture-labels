@@ -1,7 +1,7 @@
 # HB-WV-S2-01 — completion time and schedule relation
 
-Status: **HUMAN DECISION REQUIRED**. Stage 2 implementation is not adopted;
-Stage 3 and later are not started.
+Status: **RESOLVED BY HD-WV-002**. Stage 2 implementation remains unadopted;
+Stage 3 and later had not started at the blocker.
 
 ## Decision needed
 
@@ -39,3 +39,11 @@ time/chronology gates, and possibly optional DDL protections. The minimum answer
 is the two decisions above. Stage 1 and the unadopted open→scheduled evidence
 are preserved; the committed Stage 2 `PASS` is not accepted because its
 case-evidence and non-mutation gates were also incomplete.
+
+## Resolution provenance
+
+The original review supplied a recommendation and alternative. Human selected
+trusted DB time, permitted early completion, and added the `completed_at >=
+reported_at` condition. Repeated notifications of this unchanged blocker are
+not separate discoveries or execution/review runs. Dependent work resumes once
+under a new acceptance version; prior snapshots remain historical.

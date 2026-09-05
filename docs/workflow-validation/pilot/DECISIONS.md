@@ -17,3 +17,22 @@ leading/trailing whitespace.
 This is an external clarification of business intent plus delegated technical
 mechanism selection. It is not evidence that the original candidate procedure
 automatically resolved the ambiguity.
+
+## HD-WV-002 — completion timestamp and early completion
+
+Date: 2026-09-05. This is an external business-policy selection resolving
+HB-WV-S2-01; it was not derived by the candidate procedure.
+
+An authorized technician's successful completion operation establishes the
+business completion. `completed_at` is the trusted database clock value adopted
+by that same operation and is used consistently for its chronology decision and
+stored fact. Caller/technician supplied time is not authoritative. This does
+not claim that the database detects physical work completion; offline, later
+reported, and external completion feeds are out of scope.
+
+`scheduled_for` is a plan, not a lower bound: a scheduled request may complete
+before it. Existing open/scheduled/completed and actor conditions remain active.
+The new Stage 2 rule is `completed_at >= reported_at`; if the DB time cannot
+satisfy it, completion is rejected with no request mutation. The concrete time
+retrieval, locking, and test technique remain delegated implementation choices.
+Stage 1 report time storage is unchanged.
