@@ -74,3 +74,10 @@ Stage 1 status: **complete**.
 - Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage4/refactoring-rerun-1/`.
 - Refactoring introduced `OrderStore.writeOrderLines` for its two current Order consumers (direct creation and approved-Order revision); no directory/module move or speculative structure.
 - Verification: full Stage 1–4 cumulative v2 PostgreSQL acceptance 4/4 pass after refactoring.
+
+## Stage 5 — complete
+
+- Adopted implementation snapshot: `work/business-process-dogfood/runs/stage5/implementation/`.
+- Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage5/refactoring-rerun-1/`.
+- Refactoring extracted the current reservation request/result boundary to `InventoryReservationStore`; Order confirmation remains its current consumer through a transaction-scoped request operation.
+- Verification: full Stage 1–5 cumulative PostgreSQL acceptance 5/5 pass after refactoring.

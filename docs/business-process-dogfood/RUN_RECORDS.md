@@ -32,6 +32,9 @@
 | Stage 4 implementation and resolution | Terra / medium; Sol / medium | requested fresh | `01762d5` / `3c97aca` | cumulative Stage 4/v2 | **adopted** — cumulative PostgreSQL v2 4/4 pass; Sol HUMAN_BLOCKER none | actual model/session/timestamp unverified |
 | Stage 4 refactoring rerun 1 | Terra / medium | requested fresh | `3c97aca` | cumulative Stage 4/v2 | **adopted** — PostgreSQL 4/4 pass | actual model/session/timestamp unverified |
 | Stage 5 packet exposure | operator | n/a | current Stage 4 adopted snapshot | Stage 5 packet only | **blocked before implementation** — HB-S5-01 explicitly-cued reservation-result under-specification | no implementation/refactoring run |
+| Stage 5 implementation and review | Terra / medium; Sol / medium | requested fresh | `64f6f66` | cumulative Stage 5 | **adopted** — PostgreSQL 5/5 pass; Sol HUMAN_BLOCKER none | actual model/session/timestamp unverified |
+| Stage 5 refactoring rerun 1 | Terra / medium | requested fresh | Stage 5 adopted snapshot | cumulative Stage 5 | **adopted** — PostgreSQL 5/5 pass | actual model/session/timestamp unverified |
+| Stage 6 packet exposure | operator | n/a | current Stage 5 adopted snapshot | Stage 6 packet only | **blocked before implementation** — HB-S6-01 cancellation/release under-specification | no implementation/refactoring run |
 
 ## Protocol amendment 001
 

@@ -112,3 +112,19 @@ The trusted `{ id, role }` actor context is not classified as a business blocker
 - Intentionally not performed: Stage 5 acceptance freeze, implementation, schema amendment, refactoring, or later-stage work.
 - Current cumulative acceptance: Stage 1–4 v2 is 4/4 pass. Stage 5 placeholder is not an executable acceptance test.
 - Adopted/unadopted status: Stage 4 refactoring adopted; Stage 5 has no implementation snapshot.
+
+## HB-S6-01 — Cancellation and inventory release semantics
+
+- Stage: 6, exposed before implementation.
+- Evidence head: current Stage 5 adopted state.
+- Classification: `HUMAN_BLOCKER — under-specification`.
+- Discovery provenance: `latent_cross_activity`.
+- Affected activities: Order cancellation, inventory release request/result, asynchronous reservation result handling, shipment.
+- Affected rules/data: `customer_order.status`, `shipment_at`, `inventory_reservation.status` including `requested/reserved/failed/release_requested/released`.
+- Current DDL sufficiency: unknown until transitions, authority, and final-state semantics are defined.
+- Exact unresolved facts: cancellation performer/eligibility; meaning of shipment and whether `shipment_at` is the cancellation boundary; who initiates/completes release; allowed release transitions; cancellation while reservation is requested; how a late reserved/failed result interacts with cancelled Order and required no-inventory outcome.
+- Viable alternatives: cancellation may synchronously release, request async release, reject until reservation settles, or use another stated lifecycle. No option is entailed by the packet/DDL state names.
+- Minimum Human Decision: define cancellation authority/eligibility, release-result authority/transitions, and race resolution guaranteeing the stated terminal inventory outcome.
+- Intentionally not performed: Stage 6 acceptance freeze, implementation, DDL amendment, refactoring, or final review.
+- Current cumulative acceptance: Stage 1–5 is 5/5 pass; Stage 6 placeholder is not executable.
+- Adopted/unadopted status: Stage 5 refactoring adopted; Stage 6 has no implementation snapshot.
