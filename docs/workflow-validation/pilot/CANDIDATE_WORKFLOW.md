@@ -12,6 +12,14 @@ Status: candidate procedure; not normative rules or a comparative result.
    determined, stop the dependent work and return one grouped Human Decision:
    uncertainty, recommendation and trade-off, alternatives, impact, and the
    smallest answer needed. Do not invent policy.
+
+When an existing business requirement establishes the intent, specify the
+ordinary reversible validation, representation, or implementation mechanism
+needed to realize it using repository conventions or standard available
+facilities; record and verify consequential choices. Missing detail or multiple
+implementation techniques alone are not reasons to stop. Escalate only a
+concrete business-policy choice outside that delegation and its impact; this
+does not delegate authority, business limits, rounding, or lifecycle policy.
 4. Implement the current accepted horizon, then run all active acceptance
    conditions against the current code.
 5. Reassess physical structure after the consistency check. Place a decision at
@@ -38,3 +46,10 @@ consistency review, reassess physical placement: choose the narrowest meaningful
 semantic boundary that owns each decision and contains its current required
 consumers. Do not preserve or add structure merely by habit; do not change
 observable behavior during refactoring.
+
+Where stated business intent needs an ordinary reversible validation or
+representation detail, select a repository convention or standard available
+facility, then record and verify it. Do not stop merely because details or
+implementation techniques differ; escalate only business-policy choices outside
+that delegation, never by silently changing authority, limits, rounding, or
+lifecycle meaning.

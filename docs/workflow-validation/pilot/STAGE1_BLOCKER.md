@@ -1,6 +1,7 @@
 # HB-WV-S1-01 — meaning of nonblank description
 
-Status: **HUMAN DECISION REQUIRED**. Stage 2 and later are not started.
+Status: **RESOLVED BY HD-WV-001**. Stage 2 and later had not started at the
+time of the blocker.
 
 ## Decision needed
 
@@ -39,3 +40,11 @@ time; it should be amended mechanically after the Human Decision. The supplied
 runtime run reached `STAGE1_ACCEPTANCE_PASS` in a disposable schema, but did
 not retain every per-case observation required by the frozen evidence contract.
 This is evidence/instrument repair, not a new Business policy.
+
+## Resolution provenance
+
+The original review supplied a recommendation and alternative. The whitespace
+detail was genuinely escalated. Human clarification then selected rejection of
+whitespace-only input and delegated the predicate choice under the amended
+candidate workflow. The original frozen contract had not specified whitespace
+cases; a new acceptance version is required before implementation repair.
