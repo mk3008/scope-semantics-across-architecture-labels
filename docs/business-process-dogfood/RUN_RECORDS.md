@@ -23,6 +23,11 @@
 | Stage 1+2 post-review cumulative repair | operator verification | n/a | `a0cd6ca` adopted Stage 2 refactoring snapshot | `cumulative-stage2-repair.test.js` | **adopted evaluation-instrument repair** — PostgreSQL cumulative acceptance 2/2 pass | not original preregistered cumulative evidence; timestamp unverified |
 | Stage 3 HD-010 resolution implementation | Terra / medium | requested fresh | `749f4b5` | amended DDL + self-contained rules v2 + cumulative Stage 3 | **unadopted pending review blockers** — PostgreSQL cumulative acceptance 2/2 pass; frozen test hash unchanged | actual model/session/timestamp unverified |
 | Stage 3 HD-010 consistency review | Sol / medium | requested fresh/read-only | `749f4b5` | Stage 1–3 current state | **HUMAN_BLOCKER** — HB-S3-02 inconsistency and HB-S3-03 data-model insufficiency; three implementation/instrument defects | actual model/session/timestamp unverified; test not executed by read-only reviewer |
+| Stage 3 HD-011/012 resolution rerun 2 | Terra / medium | requested fresh | `6ad7c9c` | amended DDL + cumulative v2 | **superseded by defect resolution** — cumulative PostgreSQL 3/3 pass | actual model/session/timestamp unverified |
+| Stage 3 fresh Sol review / re-review | Sol / medium | requested fresh/read-only | `6ad7c9c` / `f18da4d` | current Stage 1–3 | HB-S3-02/03 resolved; no HUMAN_BLOCKER; implementation/instrument defects found and repaired | actual model/session/timestamp unverified |
+| Stage 3 coherence resolution rerun 3 | Terra / medium | requested fresh | `02b64dd` | cumulative v4 | **adopted implementation candidate** — PostgreSQL cumulative 3/3 pass | actual model/session/timestamp unverified |
+| Stage 3 final Sol review | Sol / medium | requested fresh/read-only | `02b64dd` | current Stage 1–3 | HUMAN_BLOCKER none; implementation defect none | actual model/session/timestamp unverified |
+| Stage 3 refactoring rerun 1 | Terra / medium | requested fresh | `02b64dd` | cumulative v4 | **adopted** — PostgreSQL cumulative 3/3 pass | actual model/session/timestamp unverified |
 
 ## Protocol amendment 001
 

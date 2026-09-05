@@ -59,3 +59,11 @@ Stage 1 status: **complete**.
 - Apparent physical scope: single file; no move/promotion/demotion was performed.
 - Verification: full currently frozen cumulative Stage 3 test 2/2 pass.
 - Status: **unadopted**. The fresh Sol review found HB-S3-02 and HB-S3-03; no structural interpretation is adopted and refactoring has not occurred.
+
+## Stage 3 — complete
+
+- Adopted implementation snapshot: `work/business-process-dogfood/runs/stage3/consistency-resolution-rerun-3/`.
+- Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage3/refactoring-rerun-1/`.
+- Complete source tree remains `src/app.js`. Current semantic owners are Quotation lifecycle, Order creation/snapshot, approval lifecycle, actor separation, and coherent search results; current consumers are the fixed application entry and cumulative acceptance.
+- Refactoring colocated total calculation and initial approval-state determination in `OrderStore.initializeOrder`; no directory or module move, promotion, demotion, split, or speculative structure occurred.
+- Verification: full Stage 1–3 cumulative v4 PostgreSQL acceptance 3/3 pass after refactoring.

@@ -40,3 +40,10 @@ Repository-observable counts only. No token count, elapsed human time, or cognit
 | structural moves | 0 |
 | DDL amendments in stage | 1 (pre-implementation) |
 | acceptance amendments in stage | 1 new cumulative Stage 3 instrument |
+
+### Stage 3 completion update
+
+- Additional implementation/defect-resolution runs after HD-010: 3; fresh Sol reviews after resolution: 3; refactoring runs: 1.
+- Final HUMAN_BLOCKER count after HD-011/HD-012: 0.
+- Additional DDL amendment: DDL Amendment 003; additional acceptance amendments: 002, 003, 004.
+- Final structure change: internal colocation only; no physical move.
