@@ -81,3 +81,11 @@ Stage 1 status: **complete**.
 - Adopted refactoring snapshot: `work/business-process-dogfood/runs/stage5/refactoring-rerun-1/`.
 - Refactoring extracted the current reservation request/result boundary to `InventoryReservationStore`; Order confirmation remains its current consumer through a transaction-scoped request operation.
 - Verification: full Stage 1–5 cumulative PostgreSQL acceptance 5/5 pass after refactoring.
+
+## Stage 6 — complete
+
+- Adopted implementation snapshot: `work/business-process-dogfood/runs/stage6/verification-v4/`; adopted refactoring snapshot: `work/business-process-dogfood/runs/stage6/refactoring-rerun-1/`.
+- Complete source tree remains `src/app.js`. The file contains Sales cancellation, reservation-result reconciliation, and trusted release-completion behavior alongside the existing Order/Inventory semantic owners.
+- Current consumers: the fixed application entry and frozen cumulative Stage 1–6 acceptance; release completion is only called through the trusted inventory-context input in the application boundary.
+- Refactoring colocated repeated Order-line validation in `OrderStore.requireOrderLines`; no directory/module move, promotion, demotion, or new physical structural boundary occurred.
+- Verification: cumulative Stage 1–6 v4 PostgreSQL acceptance 6/6 pass after refactoring. Language-level enforcement and exhaustive concurrent interleavings are not claimed.

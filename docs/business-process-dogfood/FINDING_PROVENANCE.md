@@ -28,3 +28,23 @@ HB-S5-01 contained mixed observations. This correction is not worker input.
 ## Observer-only correction — HB-S3-02
 
 HB-S3-02 was not homogeneous. The implementation's `pending_approval` outcome against then-active sourced-Order `draft` wording is an implementation/requirement mismatch. Retaining `draft` exposes a separate Business Process under-specification: no activity/transition moved a high-value draft into approval waiting. The sourced `draft` wording was explicit in then-active HD-009; the missing transition was obtained by relating source conversion, approval, and confirmation (`latent_cross_activity`).
+
+## Observer-only decomposition — HB-S6-01
+
+The Stage 6 packet explicitly cued cancellation during a requested reservation,
+late result arrival, release need, and the eventual-no-inventory objective. It
+did not supply the following exact decisions. This decomposition preserves the
+original blocker rather than reclassifying it wholesale.
+
+| sub-finding | packet evidence | provenance | explanation |
+| --- | --- | --- | --- |
+| cancellation performer/authority | omitted | uncertain | no actor authority was stated |
+| eligibility and meaning of before shipment | omitted | uncertain | no authoritative shipment fact/mapping was supplied |
+| release initiation/completion authority | omitted | uncertain | state names do not establish authority |
+| reservation/release transitions | partially omitted | uncertain | packet cues the race but not concrete local transitions |
+| cancellation while requested | stated | explicitly_cued | packet expressly permits it |
+| late reservation result after cancellation | stated | explicitly_cued | packet expressly supplies it; it is not latent cross-activity discovery |
+| environmental assumptions behind ultimately | omitted | uncertain | external progress and event processing were not specified |
+
+HD-015/HD-016 and `STAGE6_ENVIRONMENT_ASSUMPTIONS.md` resolve these decisions
+for the study. The environment assumptions are not Business Rules.

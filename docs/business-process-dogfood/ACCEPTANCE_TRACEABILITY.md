@@ -19,6 +19,10 @@ This ledger is introduced by Protocol Amendment 001. `Current test location` is 
 | Confirmation atomically creates one requested reservation | HD-014, BR-015 | 5 | active | `work/business-process-dogfood/frozen-tests/cumulative-stage5.test.js` | covers current eligible low/high confirmation paths |
 | Trusted inventory result authority and requested result transitions | HD-014, BR-017, BR-018 | 5 | active | `cumulative-stage5.test.js` | rejects Sales result; covers requested→reserved and requested→failed |
 | Commercial Order stays confirmed after reservation result; conflicting terminal result rejected | HD-014, BR-016, BR-018 | 5 | active | `cumulative-stage5.test.js` | no retry/recovery/release behavior is claimed |
+| Sales cancellation eligibility and immediate commercial result | HD-015, BR-019 | 6 | active | `work/business-process-dogfood/frozen-tests/cumulative-stage6-v4.test.js` | non-Sales rejection is exercised while confirmed/unshipped; fixture establishes trusted `shipment_at` directly |
+| Cancellation with failed or reserved reservation | HD-016, BR-020 | 6 | active | `cumulative-stage6-v4.test.js` | failed remains failed; reserved creates release_requested and stays pending until trusted completion |
+| Cancelled requested reservation handles late failed/reserved without restoring Order | HD-016, BR-021 | 6 | active | `cumulative-stage6-v4.test.js` | late reserved reaches release obligation then released; independent fake records held inventory |
+| Trusted release authority and eventual observed cleanup in covered paths | HD-016, BR-022 | 6 | active | `cumulative-stage6-v4.test.js` | Sales completion rejection is tested while release_requested; final assertions inspect local state and independent fake |
 
 ## Superseded/removed observation
 
