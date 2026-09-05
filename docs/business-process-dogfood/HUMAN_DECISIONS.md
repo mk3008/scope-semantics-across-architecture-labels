@@ -69,3 +69,11 @@ For every Order, `total_amount` equals the rounded exact sum of its current Orde
 Manager approval applies to the Order content present when it was made, including Order Lines, quantity, unit_price, and resulting total_amount. An effective revision of approved but unconfirmed Order content invalidates the approval even if total remains unchanged or remains above threshold. A no-op request need not invalidate approval.
 
 After effective revision, total >= 1000.00 yields `pending_approval` and requires a new approval; total < 1000.00 yields `draft` and needs no approval. The threshold is inclusive. Delete/invalidate the current approval record within the revision transaction; current requirements do not require approval history, version numbers, audit tables, or new Business Data. Revision is only for approved, unconfirmed Orders by authorized Sales. It does not change a source Quotation or Quotation Lines. Rejected, draft, pending, confirmed, and cancelled lifecycle edits are not broadened.
+
+## HD-014 — Inventory reservation result semantics
+
+Commercial confirmation and inventory reservation are separate facts. Once `confirmOrder` succeeds, `customer_order.status = confirmed` is commercially final for Stage 5. Later reservation `reserved` or `failed` never cancels, reopens, rejects, redrafts, repends, or changes approval state.
+
+Confirmation atomically leaves a confirmed Order with exactly one `inventory_reservation` in `requested`. `requested` means no authoritative result yet; `reserved` and `failed` mean trusted inventory-system success/failure respectively. Only trusted inventory-result context records either result; no persisted actor identity is required.
+
+Stage 5 allows only `requested -> reserved` and `requested -> failed`. A conflicting later result cannot overwrite a terminal Stage 5 result. No retry, duplicate-delivery contract, recovery, re-request, release, failure reason, or post-failure commercial resolution is defined. `release_requested` and `released` are not current activities merely because they appear in DDL. Future interaction with later Activities is deferred.
